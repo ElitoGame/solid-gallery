@@ -1,17 +1,17 @@
 {
   "version": "0.0.0",
-  "name": "{{name_of_lib}}",
-  "description": "{{desc_of_lib}}",
+  "name": "solid-gallery",
+  "description": "A SolidJS Libaray for displaying images in a gallery.",
   "license": "MIT",
-  "author": "{{me}}",
+  "author": "ElitoGame",
   "contributors": [],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/{{me}}/{{name_of_lib}}.git"
+    "url": "git+https://github.com/ElitoGame/solid-gallery.git"
   },
-  "homepage": "https://github.com/{{me}}/{{name_of_lib}}#readme",
+  "homepage": "https://github.com/ElitoGame/solid-gallery#readme",
   "bugs": {
-    "url": "https://github.com/{{me}}/{{name_of_lib}}/issues"
+    "url": "https://github.com/ElitoGame/solid-gallery/issues"
   },
   "private": false,
   "sideEffects": false,

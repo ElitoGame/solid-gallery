@@ -15,3 +15,10 @@ export const Hello: Component<{ to?: string }> = (props) => {
 
   return <div>{hello()}</div>;
 };
+
+export { SlideShow } from './components/SlideShow/slide-show';
+export { SlideShowContent } from './components/SlideShow/slide-show-content';
+export { SlideShowNext } from './components/SlideShow/slide-show-next';
+export { SlideShowPrev } from './components/SlideShow/slide-show-prev';
+export { SlideShowDots } from './components/SlideShow/slide-show-dots';
+export { SlideShowImage } from './components/SlideShow/slide-show-image';

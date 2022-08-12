@@ -1,15 +1,24 @@
 import type { Component } from "solid-js";
 import logo from "./logo.svg";
 import styles from "./App.module.css";
-import { Hello } from "../src";
+import { Hello, SlideShow, SlideShowContent, SlideShowDots, SlideShowImage, SlideShowNext, SlideShowPrev } from "../src";
 
 const App: Component = () => {
   return (
     <div class={styles.App}>
       <header class={styles.header}>
-        <img src={logo} class={styles.logo} alt="logo" />
+        <SlideShow>
+          <SlideShowContent>
+            <SlideShowImage src={logo} alt="Logo" class={styles.logo}></SlideShowImage>
+            <SlideShowImage src={logo} alt="Logo" class={styles["reverse-logo"]}></SlideShowImage>
+            <SlideShowImage src={logo} alt="Logo" class={styles["logo-none"]}></SlideShowImage>
+          </SlideShowContent>
+          <SlideShowPrev />
+          <SlideShowNext />
+          <SlideShowDots />
+        </SlideShow>
         <h1>
-          <Hello></Hello>
+          <Hello to="you"></Hello>
         </h1>
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
