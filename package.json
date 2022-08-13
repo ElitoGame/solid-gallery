@@ -44,6 +44,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "rollup-plugin-import-css": "^3.0.3",
     "solid-transition-group": "^0.0.10"
   },
   "peerDependencies": {
