@@ -1,6 +1,10 @@
-import { children, createEffect, For, JSX } from "solid-js";
+import { children, createEffect, For, JSX, Show } from "solid-js";
+import { Transition } from "solid-transition-group";
 import { CommonProps } from "../types";
 import { useSlideShowContext } from "./slide-show";
+import { SlideShowBullet } from "./slide-show-bullets";
+import { SlideShowNextInternal } from "./slide-show-next";
+import { SlideShowPrevInternal } from "./slide-show-prev";
 
 
 
@@ -17,14 +21,153 @@ export const SlideShowContent = (props: CommonProps) => {
         return list;
     }
 
-    // Currently the indexes are messed up when around 0. -2 = 2, -1 = 1, 0 = 0, 1 = 1, 2 = 2, 3 = 0 -> it should be -2 = 1, -1 = 2, 0 = 0, 1 = 1, 2 = 2, 3 = 0
-    createEffect(() => {
-        console.log(resolvedChildren().length, Math.abs(slideShowContext.state.currentIndex) % resolvedChildren().length, slideShowContext.state.currentIndex);
-    });
-
     return (
-        <div class="slideshow-content">
-            {resolvedChildren()[Math.abs(slideShowContext.state.currentIndex) % resolvedChildren().length]}
-        </div>
+        <>
+
+            <div class="slideshow-content" style={{
+                position: "relative",
+                "flex-direction": "row",
+                "column-gap": "1rem",
+                "justify-content": "center",
+                "align-items": "center",
+                "display": "flex",
+                "overflow": "hidden",
+            }}>
+                <Show when={slideShowContext.state.showPrevNextElement}>
+                    <div class="prev" style={{
+                        "mask": `linear-gradient(270deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) ${slideShowContext.state.showPrevNextElementFade * 100}%)`,
+                        "position": "relative",
+                        "top": "0",
+                        "left": `0%`,
+                        height: "max-content",
+                        "font-size": 0,
+                    }} onClick={() => slideShowContext.prev()}>
+                        {resolvedChildren()[slideShowContext.getPrevIndex()]}
+                    </div>
+                </Show>
+
+                <Show when={slideShowContext.state.showArrows && slideShowContext.state.arrowsPosition === "side"}>
+                    <SlideShowPrevInternal></SlideShowPrevInternal>
+                </Show>
+
+                <div class="center" style={{
+                    position: "relative",
+                    "height": "100%",
+                    "font-size": 0,
+                }}>
+                    <div class="current" style={{
+                        height: "max-content",
+                        "font-size": 0,
+                    }}
+                        onMouseOver={() => {
+                            if (slideShowContext.state.autoPlay && slideShowContext.state.autoPlayHoverPause) {
+                                slideShowContext.setAutoPlayPaused(true);
+                            }
+                        }}
+                        onMouseLeave={() => {
+                            if (slideShowContext.state.autoPlay && slideShowContext.state.autoPlayHoverPause) {
+                                slideShowContext.setAutoPlayPaused(false);
+                            }
+                        }}>
+                        {resolvedChildren()[slideShowContext.state.currentIndex]}
+                    </div>
+                    <Show when={slideShowContext.state.autoPlay && slideShowContext.state.autoPlayProgressBar}>
+                        <div class="progress-container" style={{
+                            "position": "absolute",
+                            "top": `${slideShowContext.state.autoPlayProgressBarPosition === "top" ? "0%" : "calc(100% - " + slideShowContext.state.autoPlayProgressBarThickness + ")"}`,
+                            "left": "0",
+                            "height": slideShowContext.state.autoPlayProgressBarThickness,
+                            "border": "none",
+                            "text-align": "end",
+                            "width": "100%",
+                            "font-size": 0,
+                        }}>
+                            <div class="progress-bar" style={{
+                                "position": "absolute",
+                                "height": "100%",
+                                "width": `${slideShowContext.state.autoPlayProgressBarWidth}%`,
+                                "background-color": slideShowContext.state.autoPlayProgressBarColor,
+                                "opacity": slideShowContext.state.autoPlayProgressBarOpacity,
+                                "transition": "all .15s linear"
+                            }}>
+
+                            </div>
+                        </div>
+                    </Show>
+                </div>
+
+                <Show when={slideShowContext.state.showArrows && slideShowContext.state.arrowsPosition === "side"}>
+                    <SlideShowNextInternal></SlideShowNextInternal>
+                </Show>
+
+                <Show when={slideShowContext.state.showPrevNextElement}>
+                    <div class="next" style={{
+                        "mask": `linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) ${slideShowContext.state.showPrevNextElementFade * 100}%)`,
+                        "position": "relative",
+                        "top": "0",
+                        "right": `0%`,
+                        height: "max-content",
+                        "font-size": 0,
+                        "cursor": "pointer",
+                    }} onClick={() => slideShowContext.next()}>
+                        {resolvedChildren()[slideShowContext.getNextIndex()]}
+                    </div>
+                </Show>
+            </div>
+            <Show when={slideShowContext.state.showThumbnails}>
+                <div class="thumbnail-wrapper" style={{
+                    display: "flex",
+                    "flex-direction": "row",
+                    "justify-content": "center",
+                    "align-items": "center",
+                    "column-gap": "1rem",
+                    height: `calc(${slideShowContext.state.thumbnailScale} * 100%)`,
+                    "margin": "1rem 0",
+                }}>
+                    <Show when={slideShowContext.state.showArrows && slideShowContext.state.arrowsPosition === "bottom-thumbnails"}>
+                        <SlideShowPrevInternal></SlideShowPrevInternal>
+                    </Show>
+                    {slideShowContext.state.thumbnails}
+                    <Show when={slideShowContext.state.showArrows && slideShowContext.state.arrowsPosition === "bottom-thumbnails"}>
+                        <SlideShowNextInternal></SlideShowNextInternal>
+                    </Show>
+                </div>
+            </Show>
+
+            <div style={{
+                display: "flex",
+                "column-gap": "1rem",
+                "justify-content": "center",
+            }}>
+                <Show when={slideShowContext.state.showArrows && slideShowContext.state.arrowsPosition === "bottom"}>
+                    <SlideShowPrevInternal></SlideShowPrevInternal>
+                </Show>
+
+                <Show when={slideShowContext.state.showBullets}>
+                    <div class="dots" style={{
+                        "display": "flex",
+                        "flex-direction": "row",
+                        "column-gap": "1rem",
+                        "justify-content": "center",
+                        "align-items": "center",
+                        "height": "2rem",
+                    }}>
+                        <For each={resolvedChildren()}>
+                            {(_child, index) => (
+                                <span onClick={() => slideShowContext.setCurrentIndex(index())} style={{
+                                    opacity: index() === slideShowContext.state.currentIndex ? 1 : 0.5,
+                                }}>
+                                    {slideShowContext.state.bullets}
+                                </span>
+                            )}
+                        </For>
+                    </div>
+                </Show>
+
+                <Show when={slideShowContext.state.showArrows && slideShowContext.state.arrowsPosition === "bottom"}>
+                    <SlideShowNextInternal></SlideShowNextInternal>
+                </Show>
+            </div>
+        </>
     );
 }

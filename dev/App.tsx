@@ -1,21 +1,77 @@
 import type { Component } from "solid-js";
 import logo from "./logo.svg";
 import styles from "./App.module.css";
-import { Hello, SlideShow, SlideShowContent, SlideShowDots, SlideShowImage, SlideShowNext, SlideShowPrev } from "../src";
+import { Hello, SlideShow, SlideShowContent, SlideShowBullet, SlideShowImage, SlideShowNext, SlideShowPrev, SlideShowThumbnails } from "../src";
 
 const App: Component = () => {
   return (
     <div class={styles.App}>
       <header class={styles.header}>
-        <SlideShow>
+        <SlideShow
+          showArrows={true}
+          arrowPosition="bottom-thumbnails"
+
+          showPrevNextElementFade={0.2}
+          showPrevNextElement={true}
+          showBullets={true}
+
+          showThumbnails={true}
+          thumbnailScale={0.4}
+          thumbnailAutoScroll={true}
+
+          autoPlay={true}
+          autoPlayDirection="forward"
+          autoPlayHoverPause={true}
+          autoPlayProgressBar={true}
+          autoPlayProgressBarPosition="bottom"
+          autoPlayProgressBarColor="white"
+          autoPlayProgressBarOpacity={.5}
+          autoPlayProgressBarThickness={"5px"}
+          autoPlaySpeed={1000}
+          w="xl"
+          h="sm"
+          width="480px"
+          height="270px"
+        >
           <SlideShowContent>
-            <SlideShowImage src={logo} alt="Logo" class={styles.logo}></SlideShowImage>
-            <SlideShowImage src={logo} alt="Logo" class={styles["reverse-logo"]}></SlideShowImage>
-            <SlideShowImage src={logo} alt="Logo" class={styles["logo-none"]}></SlideShowImage>
+            <SlideShowImage src="https://images.pexels.com/photos/167699/pexels-photo-167699.jpeg" alt="Pines"></SlideShowImage>
+            <SlideShowImage src="https://images.pexels.com/photos/2662116/pexels-photo-2662116.jpeg" alt="Canyon"></SlideShowImage>
+            <SlideShowImage src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg" alt="Winter"></SlideShowImage>
+            <SlideShowImage src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg" alt="Winter"></SlideShowImage>
+            <SlideShowImage src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg" alt="Winter"></SlideShowImage>
+            <SlideShowImage src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg" alt="Winter"></SlideShowImage>
+            <SlideShowImage src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg" alt="Winter"></SlideShowImage>
+            <SlideShowImage src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg" alt="Winter"></SlideShowImage>
+            <SlideShowImage src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg" alt="Winter"></SlideShowImage>
+            <SlideShowImage src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg" alt="Winter"></SlideShowImage>
+            <SlideShowImage src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg" alt="Winter"></SlideShowImage>
+            <SlideShowImage src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg" alt="Winter"></SlideShowImage>
+            <SlideShowImage src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg" alt="Winter"></SlideShowImage>
+            <SlideShowImage src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg" alt="Winter"></SlideShowImage>
+            <SlideShowImage src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg" alt="Winter"></SlideShowImage>
+            <SlideShowImage src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg" alt="Winter"></SlideShowImage>
           </SlideShowContent>
+          <SlideShowThumbnails thumbnails={[
+            "https://images.pexels.com/photos/167699/pexels-photo-167699.jpeg",
+            "https://images.pexels.com/photos/2662116/pexels-photo-2662116.jpeg",
+            "https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg",
+            "https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg",
+            "https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg",
+            "https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg",
+            "https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg",
+            "https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg",
+            "https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg",
+            "https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg",
+            "https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg",
+            "https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg",
+            "https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg",
+            "https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg",
+            "https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg",
+            "https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg",
+          ]} />
           <SlideShowPrev />
           <SlideShowNext />
-          <SlideShowDots />
+          <SlideShowBullet></SlideShowBullet>
         </SlideShow>
         <h1>
           <Hello to="you"></Hello>

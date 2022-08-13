@@ -1,24 +1,18 @@
 import { Show } from "solid-js";
 import { CommonProps } from "../types";
 import { useSlideShowContext } from "./slide-show";
+import "./slide-show.css";
 
 
-
-export const SlideShowNext = (props: CommonProps) => {
+export const SlideShowNextInternal = (props: CommonProps) => {
     const slideShowContext = useSlideShowContext();
     return (
-        <span class="slideshow-next" onClick={props.onClick ?? function () {
-            slideShowContext.next();
-        }}>
-            <Show when={props.children !== undefined} fallback={
-                <>
-                    &#10095;
-                </>
-            }>
-                <>
-                    {props.children}
-                </>
-            </Show>
-        </span>
+        <Show when={slideShowContext.state.showArrows}>
+            <span class="slideshow-next gallery-button" onClick={props.onClick ?? function () {
+                slideShowContext.next();
+            }}>
+                {slideShowContext.state.nextButton}
+            </span>
+        </Show>
     );
 }

@@ -16,9 +16,17 @@ export const Hello: Component<{ to?: string }> = (props) => {
   return <div>{hello()}</div>;
 };
 
+// SlideShow
 export { SlideShow } from './components/SlideShow/slide-show';
 export { SlideShowContent } from './components/SlideShow/slide-show-content';
-export { SlideShowNext } from './components/SlideShow/slide-show-next';
-export { SlideShowPrev } from './components/SlideShow/slide-show-prev';
-export { SlideShowDots } from './components/SlideShow/slide-show-dots';
+export { SlideShowNext, SlideShowPrev } from './components/SlideShow/slide-show-navigation-select';
+export { SlideShowBullet } from './components/SlideShow/slide-show-bullets';
 export { SlideShowImage } from './components/SlideShow/slide-show-image';
+export { SlideShowThumbnails } from './components/SlideShow/slide-show-thumbnails';
+// ImageOverlay -> A customizable overlay for any component. title, description, buttons, etc.
+
+// ImageModal -> View any component in a modal. If inside a GridGallery or SlideShow, there will be arrows to navigate.
+
+// GridGallery -> A grid gallery for any component.
+
+// ImageCompare -> A component to compare two components (images or videos suggested). Use a Slider to control the images. RTX on or off?

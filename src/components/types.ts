@@ -4,15 +4,17 @@ export interface CommonProps extends JSX.HTMLAttributes<HTMLElement> {
 }
 
 export interface CommonGalleryProps {
-    w?: "$xs" | "$xm" | "$md" | "$lg" | "$xl" | "$2xl" | "$3xl" | "$4xl";
-    h?: "$xs" | "$xm" | "$md" | "$lg" | "$xl" | "$2xl" | "$3xl" | "$4xl";
+    w?: "xs" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | "4xl" | "5xl" | "6xl" | "7xl" | "8xl" | "full" | "min" | "max" | "screenW";
+    h?: "xs" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | "4xl" | "5xl" | "6xl" | "7xl" | "8xl" | "full" | "min" | "max" | "screenH";
+    width?: string;
+    height?: string;
     children: JSX.Element[] | JSX.Element;
 }
 
 export interface SlideShowProps extends CommonGalleryProps {
     enlarge?: boolean;
     showArrows?: boolean;
-    arrowPosition?: "side" | "top" | "bottom" | "side-inside";
+    arrowPosition?: "side" | "bottom" | "side-inside" | "bottom-thumbnails";
     showBullets?: boolean;
     bulletsPosition?: "top" | "bottom";
     showCaptions?: boolean;
@@ -21,7 +23,9 @@ export interface SlideShowProps extends CommonGalleryProps {
     captionBackgroundOpacity?: number;
     captionTitleOnly?: boolean;
     showThumbnails?: boolean;
-    thumbnailsPosition?: "top" | "bottom";
+    thumbnailScale?: number;
+    thumbnailsPosition?: "top" | "bottom" | "left" | "right";
+    thumbnailAutoScroll?: boolean;
     showPrevNextElement?: boolean;
     showPrevNextElementFade?: number;
     autoPlay?: boolean;
@@ -33,6 +37,6 @@ export interface SlideShowProps extends CommonGalleryProps {
     autoPlayProgressBar?: boolean;
     autoPlayProgressBarColor?: string;
     autoPlayProgressBarOpacity?: number;
-    autoPlayProgressBarThickness?: number;
+    autoPlayProgressBarThickness?: string;
     autoPlayProgressBarPosition?: "top" | "bottom";
 }
