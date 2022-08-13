@@ -1,6 +1,5 @@
-import { children, createEffect, For, Show } from "solid-js";
+import { createEffect, For, Show } from "solid-js";
 import { convertSizeToCSS } from "../css";
-import { CommonProps } from "../types";
 import { useSlideShowContext } from "./slide-show";
 
 
@@ -18,28 +17,8 @@ export const SlideShowThumbnails = (props: { thumbnails: string[] }) => {
             slideShowContext.state.currentIndex;
             if (slideShowContext.state.thumbnailAutoScroll) {
                 if (container && selected) {
-                    const offset = (selected?.offsetLeft ?? 0) - (container?.offsetLeft ?? 0);
-                    const widthC = container?.clientWidth;
-                    const widthS = selected?.clientWidth;
-
-                    console.log(offset, widthC, widthS, container?.scrollLeft);
-
-                    if (slideShowContext.state.autoPlayDirection === "forward") {
-                        if (offset - container.scrollLeft > widthC - widthS) {
-                            container?.scrollTo((widthC - widthS + (selected?.offsetLeft ?? 0)), 0);
-                            console.log("scroll to right");
-                        } else if (offset <= 0) {
-                            container?.scrollTo(0, 0);
-                        }
-                    } else if (slideShowContext.state.autoPlayDirection === "backward") {
-                        console.log(offset, widthS + container.scrollLeft);
-                        if (container.scrollLeft < offset - widthC) {
-                            container?.scrollTo((widthC - widthS + (selected?.offsetLeft ?? 0)), 0);
-                            console.log("scroll to left");
-                        }
-                        else if (offset < widthS + container.scrollLeft) {
-                            container?.scrollTo(offset - widthC + widthS, 0);
-                        }
+                    if (isScrolledOutOfView(selected, container)) {
+                        selected.scrollIntoView({ inline: "center" });
                     }
                 }
             }
@@ -84,4 +63,10 @@ export const SlideShowThumbnails = (props: { thumbnails: string[] }) => {
     return (
         <></>
     );
+}
+
+function isScrolledOutOfView(el: HTMLElement, c: HTMLDivElement) {
+    let elemRight = el.scrollLeft + el.clientWidth;
+    let elemLeft = el.scrollLeft;
+    return (elemLeft <= 0) || (elemRight >= c.clientWidth);
 }

@@ -19,7 +19,7 @@ const App: Component = () => {
           thumbnailScale={0.4}
           thumbnailAutoScroll={true}
 
-          autoPlay={true}
+          autoPlay={false}
           autoPlayDirection="forward"
           autoPlayHoverPause={true}
           autoPlayProgressBar={true}

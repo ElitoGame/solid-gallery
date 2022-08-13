@@ -5,10 +5,14 @@ specifiers:
   rollup: ^2.77.2
   rollup-preset-solid: ^1.4.0
   solid-js: ^1.4.8
+  solid-transition-group: ^0.0.10
   taze: ^0.7.6
   typescript: ^4.7.4
   vite: ^3.0.4
   vite-plugin-solid: ^2.3.0
+
+dependencies:
+  solid-transition-group: 0.0.10_solid-js@1.4.8
 
 devDependencies:
   prettier: 2.7.1
@@ -2979,7 +2983,6 @@ packages:
 
   /solid-js/1.4.8:
     resolution: {integrity: sha512-XErZdnnYYXF7OwGSUAPcua2y5/ELB/c53zFCpWiEGqxTNoH1iQghzI8EsHJXk06sNn+Z/TGhb8bPDNNGSgimag==}
-    dev: true
 
   /solid-refresh/0.4.1_solid-js@1.4.8:
     resolution: {integrity: sha512-v3tD/OXQcUyXLrWjPW1dXZyeWwP7/+GQNs8YTL09GBq+5FguA6IejJWUvJDrLIA4M0ho9/5zK2e9n+uy+4488g==}
@@ -2991,6 +2994,14 @@ packages:
       '@babel/types': 7.18.9
       solid-js: 1.4.8
     dev: true
+
+  /solid-transition-group/0.0.10_solid-js@1.4.8:
+    resolution: {integrity: sha512-b3O9z6BUP60CG1WnTdqFuvHms0reDNYwQF+eAEEaSaoDEmiOu9+Lu7zQgWGySJjaAdSAClhmFCmx/eAjQgfIoA==}
+    peerDependencies:
+      solid-js: ^1.0.0
+    dependencies:
+      solid-js: 1.4.8
+    dev: false
 
   /source-map-js/1.0.2:
     resolution: {integrity: sha512-R0XvVJ9WusLiqTCEiGCmICCMplcCkIwwR11mOSD9CR5u+IXYdiseeEuXCVAjS54zqwkLcPNnmU4OeJ6tUrWhDw==}
