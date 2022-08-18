@@ -8,16 +8,18 @@ const App: Component = () => {
     <div class={styles.App}>
       <header class={styles.header}>
         <SlideShow
-          showArrows={true}
-          arrowPosition="bottom-thumbnails"
+          showArrows={false}
+          arrowPosition="side"
 
           showPrevNextElementFade={0.2}
           showPrevNextElement={true}
+          prevNextElementClickable={true}
           showBullets={true}
 
           showThumbnails={true}
-          thumbnailScale={0.4}
+          thumbnailScale={0.2}
           thumbnailAutoScroll={true}
+          thumbnailsPosition="bottom"
 
           autoPlay={false}
           autoPlayDirection="forward"
@@ -50,10 +52,15 @@ const App: Component = () => {
             <SlideShowImage src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg" alt="Winter"></SlideShowImage>
             <SlideShowImage src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg" alt="Winter"></SlideShowImage>
             <SlideShowImage src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg" alt="Winter"></SlideShowImage>
+            <div>
+              <h1>Hi</h1>
+              <span>How are ya????????????????????????????????????????????????????????????????</span>
+            </div>
           </SlideShowContent>
           <SlideShowThumbnails thumbnails={[
             "https://images.pexels.com/photos/167699/pexels-photo-167699.jpeg",
             "https://images.pexels.com/photos/2662116/pexels-photo-2662116.jpeg",
+            "https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg",
             "https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg",
             "https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg",
             "https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg",

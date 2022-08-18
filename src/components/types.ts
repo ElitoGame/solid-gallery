@@ -12,27 +12,24 @@ export interface CommonGalleryProps {
 }
 
 export interface SlideShowProps extends CommonGalleryProps {
-    enlarge?: boolean;
     showArrows?: boolean;
-    arrowPosition?: "side" | "bottom" | "side-inside" | "bottom-thumbnails";
+    arrowPosition?: "side" | "bottom" | "bottom-thumbnails";
     showBullets?: boolean;
-    bulletsPosition?: "top" | "bottom";
-    showCaptions?: boolean;
-    captionPosition?: "top" | "bottom" | "bottom-inside" | "top-inside";
-    captionBackgroundColor?: string;
-    captionBackgroundOpacity?: number;
-    captionTitleOnly?: boolean;
     showThumbnails?: boolean;
     thumbnailScale?: number;
-    thumbnailsPosition?: "top" | "bottom" | "left" | "right";
+    thumbnailsPosition?: "bottom" | "left" | "right";
     thumbnailAutoScroll?: boolean;
+
     showPrevNextElement?: boolean;
     showPrevNextElementFade?: number;
+    prevNextElementClickable?: boolean;
+
+    endBehavior?: "jo-jo" | "back-to-start";
+
     autoPlay?: boolean;
     autoPlaySpeed?: number;
     autoPlayDirection?: "forward" | "backward" | "random";
     autoPlayHoverPause?: boolean;
-    autoPlayLoop?: boolean;
     autoPlayLoopType?: "jo-jo" | "back-to-start";
     autoPlayProgressBar?: boolean;
     autoPlayProgressBarColor?: string;

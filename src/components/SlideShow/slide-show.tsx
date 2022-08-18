@@ -4,35 +4,29 @@ import { createStore } from "solid-js/store";
 
 /**
     <SlideShow //TODO look into transitions, uhh pain :P
-        enlarge={true}
         ✅showArrows={true}
-        🔄arrowsPosition="side" // side, top, bottom, side-inside
+        ✅arrowsPosition="side" // side, bottom, bottom-thumbnails
         ✅showBullets={true}
-        🔄bulletsPosition="bottom" // bottom, top, inside
-        showCaptions={true}
-        captionPosition="bottom" // bottom, top, bottom-inside, top-inside
-        captionBackgroundColor="#000"
-        captionBackgroundOpacity={0.5}
-        captionTitleOnly={false}
         ✅showThumbnails={true}
         ✅thumbnailScale={0.3} // only effective below 0.4
         ✅thumbnailAutoScroll={true}
-        🔄thumbnailsPosition="bottom" // bottom, top, left, right
+        🔄thumbnailsPosition="bottom" // bottom, left, right
         ✅showPrevNextElement={true}
         ✅showPrevNextElementFade={0.05} // 0 - 1
+        ✅prevNextElementClickable={true} 
+        //TODO This should still be implemented, also for the arrows and ShowPrevNext. Maybe rename to endBehavior? Just change the autoPlayDirection when a end is hit for jo-jo
+        endBehavior="jo-jo" // jo-jo, back-to-start
         ✅autoPlay={true}
         ✅autoPlaySpeed={3000}
         ✅autoPlayDirection="forward" // forward, backward, random
         ✅autoPlayHoverPause={true}
-        autoPlayLoop={true}
-        autoPlayLoopType="jo-jo" // jo-jo, back-to-start
         ✅autoPlayProgressBar={true}
         ✅autoPlayProgressBarColor="#fff"
         ✅autoPlayProgressBarOpacity={0.5} // 0 - 1
         ✅autoPlayProgressBarThickness={5} // 0 - 10
         ✅autoPlayProgressBarPosition="top" // top, bottom
-        ✅w="$xs" // $xs, $sm, $md, $lg, $xl, $2xl, $3xl, $4xl
-        ✅h="$xs" // $xs, $sm, $md, $lg, $xl, $2xl, $3xl, $4xl
+        ✅w="xs" // xs, sm, md, lg, xl, 2xl, 3xl, 4xl, etc
+        ✅h="xs" // xs, sm, md, lg, xl, 2xl, 3xl, 4xl, etc
         ✅width="100%" // normal css
         ✅height="100%" // normal css
     >
@@ -52,7 +46,6 @@ import { createStore } from "solid-js/store";
  */
 
 interface SlideShowState {
-    enlarge: boolean;
     showArrows: boolean;
     arrowsPosition: string;
     nextButton: JSX.Element;
@@ -65,10 +58,14 @@ interface SlideShowState {
     size: number;
     showPrevNextElement: boolean;
     showPrevNextElementFade: number;
+    prevNextElementClickable: boolean;
 
     thumbnailScale: number;
     thumbnailAutoScroll: boolean;
     showThumbnails: boolean;
+    thumbnailsPosition: string;
+
+    endBehavior: string;
 
     autoPlay: boolean;
     autoPlayPaused: boolean;
@@ -90,27 +87,23 @@ interface SlideShowState {
 export const SlideShow = (props: SlideShowProps) => {
 
     const merged = mergeProps({
-        enlarge: true,
         showArrows: true,
-        arrowsPosition: "side", // side, top, bottom, side-inside
+        arrowsPosition: "side", // side, bottom, bottom-thumbnails
         showBullets: true,
-        bulletsPosition: "bottom", // bottom, top, inside
-        showCaptions: true,
-        captionPosition: "bottom", // bottom, top, bottom-inside, top-inside
-        captionBackgroundColor: "#000",
-        captionBackgroundOpacity: 0.5,
-        captionTitleOnly: false,
         showThumbnails: true,
         thumbnailScale: 0.3,
         thumbnailsPosition: "bottom", // bottom, top, left, right
         thumbnailAutoScroll: true,
         showPrevNextElement: true,
         showPrevNextElementFade: 0.3, // 0 - 1
+        prevNextElementClickable: true,
+
+        endBehavior: "jo-jo", // jo-jo, back-to-start
+
         autoPlay: true,
         autoPlaySpeed: 3000,
         autoPlayDirection: "forward", // forward, backward, random
         autoPlayHoverPause: true,
-        autoPlayLoop: true,
         autoPlayLoopType: "jo-jo", // jo-jo, back-to-start
         autoPlayProgressBar: true,
         autoPlayProgressBarColor: "#fff",
@@ -124,7 +117,6 @@ export const SlideShow = (props: SlideShowProps) => {
     }, props);
 
     const [state, setState] = createStore<SlideShowState>({
-        enlarge: merged.enlarge,
         showArrows: merged.showArrows,
         arrowsPosition: props.arrowPosition ?? merged.arrowsPosition,
         nextButton: <></>,
@@ -134,11 +126,17 @@ export const SlideShow = (props: SlideShowProps) => {
         showBullets: merged.showBullets,
         currentIndex: 0,
         size: 0,
+
         showPrevNextElement: merged.showPrevNextElement,
         showPrevNextElementFade: merged.showPrevNextElementFade,
+        prevNextElementClickable: merged.prevNextElementClickable,
         thumbnailScale: merged.thumbnailScale,
         thumbnailAutoScroll: merged.thumbnailAutoScroll,
         showThumbnails: merged.showThumbnails,
+        thumbnailsPosition: merged.thumbnailsPosition,
+
+        endBehavior: merged.autoPlayLoopType,
+
         autoPlay: merged.autoPlay,
         autoPlayDirection: merged.autoPlayDirection,
         autoPlayPaused: false,

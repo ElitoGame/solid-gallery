@@ -23,7 +23,6 @@ export const SlideShowContent = (props: CommonProps) => {
 
     return (
         <>
-
             <div class="slideshow-content" style={{
                 position: "relative",
                 "flex-direction": "row",
@@ -33,15 +32,34 @@ export const SlideShowContent = (props: CommonProps) => {
                 "display": "flex",
                 "overflow": "hidden",
             }}>
+                <Show when={slideShowContext.state.showThumbnails && slideShowContext.state.thumbnailsPosition === "left"}>
+                    <div class="thumbnail-wrapper" style={{
+                        display: "flex",
+                        "flex-direction": "column",
+                        "justify-content": "center",
+                        "align-items": "center",
+                        "column-gap": "1rem",
+                        height: `calc(${slideShowContext.state.thumbnailScale} * 100%)`,
+                        "margin": "1rem 0",
+                    }}>
+                        <Show when={slideShowContext.state.showArrows && slideShowContext.state.arrowsPosition === "bottom-thumbnails"}>
+                            <SlideShowPrevInternal></SlideShowPrevInternal>
+                        </Show>
+                        {slideShowContext.state.thumbnails}
+                        <Show when={slideShowContext.state.showArrows && slideShowContext.state.arrowsPosition === "bottom-thumbnails"}>
+                            <SlideShowNextInternal></SlideShowNextInternal>
+                        </Show>
+                    </div>
+                </Show>
                 <Show when={slideShowContext.state.showPrevNextElement}>
-                    <div class="prev" style={{
+                    <div class="prev slide-content" style={{
                         "mask": `linear-gradient(270deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) ${slideShowContext.state.showPrevNextElementFade * 100}%)`,
                         "position": "relative",
                         "top": "0",
                         "left": `0%`,
-                        height: "max-content",
-                        "font-size": 0,
-                    }} onClick={() => slideShowContext.prev()}>
+                        "overflow": "hidden",
+                        "height": slideShowContext.state.height ?? slideShowContext.state.h,
+                    }} onClick={() => { if (slideShowContext.state.prevNextElementClickable) slideShowContext.prev() }}>
                         {resolvedChildren()[slideShowContext.getPrevIndex()]}
                     </div>
                 </Show>
@@ -51,13 +69,14 @@ export const SlideShowContent = (props: CommonProps) => {
                 </Show>
 
                 <div class="center" style={{
-                    position: "relative",
-                    "height": "100%",
-                    "font-size": 0,
+                    "position": "relative",
+                    "height": slideShowContext.state.height ?? slideShowContext.state.h,
+                    "width": slideShowContext.state.width ?? slideShowContext.state.w,
+                    "overflow": "hidden",
+                    "flex-shrink": 0,
                 }}>
-                    <div class="current" style={{
-                        height: "max-content",
-                        "font-size": 0,
+                    <div class="current slide-content" style={{
+                        // "height": slideShowContext.state.height ?? slideShowContext.state.h,
                     }}
                         onMouseOver={() => {
                             if (slideShowContext.state.autoPlay && slideShowContext.state.autoPlayHoverPause) {
@@ -101,20 +120,41 @@ export const SlideShowContent = (props: CommonProps) => {
                 </Show>
 
                 <Show when={slideShowContext.state.showPrevNextElement}>
-                    <div class="next" style={{
+                    <div class="next slide-content" style={{
                         "mask": `linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) ${slideShowContext.state.showPrevNextElementFade * 100}%)`,
                         "position": "relative",
                         "top": "0",
                         "right": `0%`,
-                        height: "max-content",
-                        "font-size": 0,
+                        "height": slideShowContext.state.height ?? slideShowContext.state.h,
                         "cursor": "pointer",
-                    }} onClick={() => slideShowContext.next()}>
+                        "overflow": "hidden",
+                    }} onClick={() => { if (slideShowContext.state.prevNextElementClickable) slideShowContext.next() }}>
                         {resolvedChildren()[slideShowContext.getNextIndex()]}
                     </div>
                 </Show>
+
+                <Show when={slideShowContext.state.showThumbnails && slideShowContext.state.thumbnailsPosition === "right"}>
+                    <div class="thumbnail-wrapper" style={{
+                        display: "flex",
+                        "flex-direction": "column",
+                        "justify-content": "center",
+                        "align-items": "center",
+                        "column-gap": "1rem",
+                        height: `calc(${slideShowContext.state.thumbnailScale} * 100%)`,
+                        "margin": "1rem 0",
+                    }}>
+                        <Show when={slideShowContext.state.showArrows && slideShowContext.state.arrowsPosition === "bottom-thumbnails"}>
+                            <SlideShowPrevInternal></SlideShowPrevInternal>
+                        </Show>
+                        {slideShowContext.state.thumbnails}
+                        <Show when={slideShowContext.state.showArrows && slideShowContext.state.arrowsPosition === "bottom-thumbnails"}>
+                            <SlideShowNextInternal></SlideShowNextInternal>
+                        </Show>
+                    </div>
+                </Show>
+
             </div>
-            <Show when={slideShowContext.state.showThumbnails}>
+            <Show when={slideShowContext.state.showThumbnails && slideShowContext.state.thumbnailsPosition === "bottom"}>
                 <div class="thumbnail-wrapper" style={{
                     display: "flex",
                     "flex-direction": "row",
