@@ -1,39 +1,72 @@
 import { JSX } from "solid-js/jsx-runtime";
 
-export interface CommonProps extends JSX.HTMLAttributes<HTMLElement> {
-}
+export interface CommonProps extends JSX.HTMLAttributes<HTMLElement> {}
 
 export interface CommonGalleryProps {
-    w?: "xs" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | "4xl" | "5xl" | "6xl" | "7xl" | "8xl" | "full" | "min" | "max" | "screenW";
-    h?: "xs" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | "4xl" | "5xl" | "6xl" | "7xl" | "8xl" | "full" | "min" | "max" | "screenH";
-    width?: string;
-    height?: string;
-    children: JSX.Element[] | JSX.Element;
+  w?:
+    | "xs"
+    | "sm"
+    | "md"
+    | "lg"
+    | "xl"
+    | "2xl"
+    | "3xl"
+    | "4xl"
+    | "5xl"
+    | "6xl"
+    | "7xl"
+    | "8xl"
+    | "full"
+    | "min"
+    | "max"
+    | "screenW";
+  h?:
+    | "xs"
+    | "sm"
+    | "md"
+    | "lg"
+    | "xl"
+    | "2xl"
+    | "3xl"
+    | "4xl"
+    | "5xl"
+    | "6xl"
+    | "7xl"
+    | "8xl"
+    | "full"
+    | "min"
+    | "max"
+    | "screenH";
+  width?: string;
+  height?: string;
+  children: JSX.Element[] | JSX.Element;
 }
 
 export interface SlideShowProps extends CommonGalleryProps {
-    showArrows?: boolean;
-    arrowPosition?: "side" | "bottom" | "bottom-thumbnails";
-    showBullets?: boolean;
-    showThumbnails?: boolean;
-    thumbnailScale?: number;
-    thumbnailsPosition?: "bottom" | "left" | "right";
-    thumbnailAutoScroll?: boolean;
+  showArrows?: boolean;
+  arrowPosition?: "side" | "bottom" | "bottom-thumbnails";
+  showBullets?: boolean;
+  showThumbnails?: boolean;
+  thumbnailScale?: number;
+  thumbnailsPosition?: "bottom" | "left" | "right";
+  thumbnailAutoScroll?: boolean;
+  thumbnailGap?: string;
+  thumbnailScrollbar?: "auto" | "always" | "never";
 
-    showPrevNextElement?: boolean;
-    showPrevNextElementFade?: number;
-    prevNextElementClickable?: boolean;
+  showPrevNextElement?: boolean;
+  showPrevNextElementFade?: number;
+  prevNextElementClickable?: boolean;
 
-    endBehavior?: "jo-jo" | "back-to-start";
+  //   endBehavior?: "jo-jo" | "back-to-start";
 
-    autoPlay?: boolean;
-    autoPlaySpeed?: number;
-    autoPlayDirection?: "forward" | "backward" | "random";
-    autoPlayHoverPause?: boolean;
-    autoPlayLoopType?: "jo-jo" | "back-to-start";
-    autoPlayProgressBar?: boolean;
-    autoPlayProgressBarColor?: string;
-    autoPlayProgressBarOpacity?: number;
-    autoPlayProgressBarThickness?: string;
-    autoPlayProgressBarPosition?: "top" | "bottom";
+  autoPlay?: boolean;
+  autoPlaySpeed?: number;
+  autoPlayDirection?: "forward" | "backward" | "random";
+  autoPlayHoverPause?: boolean;
+  autoPlayLoopType?: "jo-jo" | "back-to-start";
+  autoPlayProgressBar?: boolean;
+  autoPlayProgressBarColor?: string;
+  autoPlayProgressBarOpacity?: number;
+  autoPlayProgressBarThickness?: string;
+  autoPlayProgressBarPosition?: "top" | "bottom" | "thumbnail-top" | "thumbnail-bottom";
 }
