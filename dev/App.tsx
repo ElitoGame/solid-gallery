@@ -10,12 +10,80 @@ import {
   SlideShowNext,
   SlideShowPrev,
   SlideShowThumbnails,
+  ImageCompare,
+  ImageCompareSlider,
+  ImageCompareLeft,
+  ImageCompareRight,
 } from "../src";
 
 const App: Component = () => {
   return (
     <div class={styles.App}>
       <header class={styles.header}>
+        <ImageCompare
+          width="720px"
+          height="405px"
+          borderLine={true}
+          borderLineColor="#333"
+          borderLineOpacity={1}
+          borderLineThickness="2px"
+          style="border-radius: 5px;"
+        >
+          <ImageCompareRight>
+            <div style={{ position: "relative", width: "100%", height: "100%" }}>
+              <span
+                style={{
+                  position: "absolute",
+                  bottom: "1rem",
+                  left: "1rem",
+                }}
+              >
+                Test
+              </span>
+              <img
+                style={{ width: "100%", height: "100%" }}
+                src="https://images.pexels.com/photos/167699/pexels-photo-167699.jpeg"
+                alt="Image Compare right: Forest"
+              />
+            </div>
+          </ImageCompareRight>
+          <ImageCompareLeft
+            src="https://images.pexels.com/photos/2662116/pexels-photo-2662116.jpeg"
+            alt="Image Compare left: Canyon"
+          >
+            <div style={{ position: "relative", width: "100%", height: "100%" }}>
+              <span
+                style={{
+                  position: "absolute",
+                  bottom: "1rem",
+                  left: "1rem",
+                }}
+              >
+                tesT
+              </span>
+              <img
+                style={{ width: "100%", height: "100%" }}
+                src="https://images.pexels.com/photos/2662116/pexels-photo-2662116.jpeg"
+                alt="Image Compare left: Canyon"
+              />
+            </div>
+          </ImageCompareLeft>
+          <ImageCompareSlider>
+            <div
+              style={{
+                "background-color": "#333",
+                "border-radius": "50%",
+                width: "3rem",
+                height: "3rem",
+                cursor: "pointer",
+                "font-size": "2rem",
+              }}
+            >
+              &#10094;&#10095;
+            </div>
+          </ImageCompareSlider>
+        </ImageCompare>
+
         <SlideShow
           // Navigation
           showArrows={true}
@@ -32,7 +100,7 @@ const App: Component = () => {
           thumbnailGap="1rem"
           thumbnailScrollbar="never"
           // Autoplay
-          autoPlay={true}
+          autoPlay={false}
           autoPlayDirection="forward"
           autoPlayHoverPause={true}
           autoPlayProgressBar={true}
@@ -112,7 +180,7 @@ const App: Component = () => {
               src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg"
               alt="Winter"
             ></SlideShowImage>
-            <div>
+            <div style="background-color: red; border-radius: 5px;">
               <h1>Hi</h1>
               <span>
                 How are ya????????????????????????????????????????????????????????????????

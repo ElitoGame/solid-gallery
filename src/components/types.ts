@@ -39,7 +39,7 @@ export interface CommonGalleryProps {
     | "screenH";
   width?: string;
   height?: string;
-  children: JSX.Element[] | JSX.Element;
+  children?: JSX.Element[] | JSX.Element;
 }
 
 export interface SlideShowProps extends CommonGalleryProps {
@@ -69,4 +69,17 @@ export interface SlideShowProps extends CommonGalleryProps {
   autoPlayProgressBarOpacity?: number;
   autoPlayProgressBarThickness?: string;
   autoPlayProgressBarPosition?: "top" | "bottom" | "thumbnail-top" | "thumbnail-bottom";
+}
+
+export interface ImageCompareProps extends CommonGalleryProps {
+  borderLine?: boolean;
+  borderLineColor?: string;
+  borderLineThickness?: string;
+  borderLineOpacity?: number;
+  style?: string | JSX.CSSProperties;
+}
+
+export interface ImageCompareImageProps extends CommonGalleryProps {
+  src?: string;
+  alt?: string;
 }
