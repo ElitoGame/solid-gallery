@@ -40,17 +40,25 @@ export const SlideShowThumbnails = (props: {
     );
   }
 
+  const [getSelected, setSelected] = createSignal<HTMLDivElement>();
+
   slideShowContext.setThumbnails(() => {
     let container: HTMLDivElement | undefined;
-    let selected: HTMLImageElement | undefined;
 
-    createEffect(() => {
+    createEffect(async () => {
       // This needs to stay here to trigger the effect:
-      slideShowContext.state.currentIndex;
       if (slideShowContext.state.thumbnailAutoScroll) {
-        if (container && selected) {
-          if (isScrolledOutOfView(selected, container)) {
-            selected.scrollIntoView({ inline: "center", block: "center" });
+        if (container && getSelected()) {
+          if (isScrolledOutOfView(getSelected(), container)) {
+            // scroll only the containers scrollbar to center on the selected thumbnail
+            container.scrollTo(
+              (getSelected()?.offsetLeft ?? 0) -
+                container.offsetWidth / 2 +
+                (getSelected()?.offsetWidth ?? 0) / 2,
+              (getSelected()?.offsetTop ?? 0) -
+                container.offsetHeight / 2 +
+                (getSelected()?.offsetHeight ?? 0) / 2,
+            );
           }
         }
       }
@@ -64,6 +72,7 @@ export const SlideShowThumbnails = (props: {
             ref={container}
             style={{
               display: "flex",
+              position: "relative",
               "flex-direction": "column",
               "column-gap": slideShowContext.state.thumbnailGap,
               "row-gap": slideShowContext.state.thumbnailGap,
@@ -91,6 +100,7 @@ export const SlideShowThumbnails = (props: {
                   }
                 >
                   <div
+                    ref={setSelected}
                     style={{
                       opacity: index() === slideShowContext.state.currentIndex ? 1 : 0.5,
                       height: `calc(${slideShowContext.state.thumbnailScale} * 100%)`,
@@ -99,7 +109,6 @@ export const SlideShowThumbnails = (props: {
                     }}
                   >
                     <div
-                      ref={selected}
                       onClick={() => slideShowContext.setCurrentIndex(index())}
                       style={{
                         opacity: index() === slideShowContext.state.currentIndex ? 1 : 0.5,
@@ -159,6 +168,7 @@ export const SlideShowThumbnails = (props: {
           ref={container}
           style={{
             display: "flex",
+            position: "relative",
             "flex-direction": "row",
             "column-gap": slideShowContext.state.thumbnailGap,
             "row-gap": slideShowContext.state.thumbnailGap,
@@ -186,15 +196,14 @@ export const SlideShowThumbnails = (props: {
                 }
               >
                 <div
+                  ref={setSelected}
                   style={{
                     opacity: index() === slideShowContext.state.currentIndex ? 1 : 0.5,
                     width: `calc(${slideShowContext.state.thumbnailScale} * 100%)`,
                     "min-width": `calc(${slideShowContext.state.thumbnailScale} * 100%)`,
-                    position: "relative",
                   }}
                 >
                   <div
-                    ref={selected}
                     onClick={() => slideShowContext.setCurrentIndex(index())}
                     style={{
                       opacity: index() === slideShowContext.state.currentIndex ? 1 : 0.5,
@@ -255,7 +264,8 @@ export const SlideShowThumbnails = (props: {
   return <></>;
 };
 
-function isScrolledOutOfView(el: HTMLElement, c: HTMLDivElement) {
+function isScrolledOutOfView(el: HTMLElement | undefined, c: HTMLDivElement) {
+  if (!el) return false;
   let elemRight = el.scrollLeft + el.clientWidth;
   let elemLeft = el.scrollLeft;
   return elemLeft <= 0 || elemRight >= c.clientWidth;

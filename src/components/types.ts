@@ -83,3 +83,5 @@ export interface ImageCompareImageProps extends CommonGalleryProps {
   src?: string;
   alt?: string;
 }
+
+export interface GridGalleryProps extends CommonGalleryProps {}

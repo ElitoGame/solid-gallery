@@ -14,12 +14,14 @@ import {
   ImageCompareSlider,
   ImageCompareLeft,
   ImageCompareRight,
+  GridGallery,
 } from "../src";
 
 const App: Component = () => {
   return (
     <div class={styles.App}>
       <header class={styles.header}>
+        <GridGallery></GridGallery>
         <ImageCompare
           width="720px"
           height="405px"
@@ -96,7 +98,7 @@ const App: Component = () => {
           showThumbnails={true}
           thumbnailScale={0.2}
           thumbnailAutoScroll={true}
-          thumbnailsPosition="bottom"
+          thumbnailsPosition="right"
           thumbnailGap="1rem"
           thumbnailScrollbar="never"
           // Autoplay

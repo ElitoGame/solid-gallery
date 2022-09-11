@@ -28,6 +28,8 @@ export { SlideShowThumbnails } from "./components/SlideShow/slide-show-thumbnail
 // ImageModal -> View any component in a modal. If inside a GridGallery or SlideShow, there will be arrows to navigate.
 
 // GridGallery -> A grid gallery for any component.
+export { GridGallery } from "./components/GridGallery/grid-gallery";
+// ImageScrollBar -> A side scroll gallery for any component.
 
 // ImageCompare -> A component to compare two components (images or videos suggested). Use a Slider to control the images. RTX on or off?
 export { ImageCompare } from "./components/ImageCompare/image-compare";
