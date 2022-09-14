@@ -1,20 +1,3 @@
-import { Accessor, Component, createComputed, createSignal } from "solid-js";
-
-export function createHello(): [Accessor<string>, (to: string) => void] {
-  const [hello, setHello] = createSignal("Hello World!");
-
-  return [hello, (to: string) => setHello(`Hello ${to}!`)];
-}
-
-export const Hello: Component<{ to?: string }> = (props) => {
-  const [hello, setHello] = createHello();
-
-  createComputed(() => {
-    if (typeof props.to === "string") setHello(props.to);
-  });
-
-  return <div>{hello()}</div>;
-};
 
 // SlideShow
 export { SlideShow } from "./components/SlideShow/slide-show";
@@ -27,8 +10,11 @@ export { SlideShowThumbnails } from "./components/SlideShow/slide-show-thumbnail
 
 // ImageModal -> View any component in a modal. If inside a GridGallery or SlideShow, there will be arrows to navigate.
 
-// GridGallery -> A grid gallery for any component.
-export { GridGallery } from "./components/GridGallery/grid-gallery";
+// Galleries -> Some gallery layouts for any component.
+export { SquareGallery } from "./components/SquareGallery/square-gallery";
+export { ColumnGallery } from "./components/ColumnGallery/column-gallery";
+export { ColumnGalleryColumn } from "./components/ColumnGallery/column-gallery";
+export { AutoColumnGallery } from "./components/ColumnGallery/auto-column-gallery";
 // ImageScrollBar -> A side scroll gallery for any component.
 
 // ImageCompare -> A component to compare two components (images or videos suggested). Use a Slider to control the images. RTX on or off?

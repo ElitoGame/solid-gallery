@@ -4,7 +4,6 @@ import { ImageCompareProps } from "../types";
 import { ImageCompareSlider } from "./image-compare-slider";
 
 export const ImageCompare = (props: ImageCompareProps) => {
-  console.log("Compare");
   const merged = mergeProps(
     {
       borderLine: false,
@@ -64,12 +63,12 @@ export const ImageCompare = (props: ImageCompareProps) => {
   const styleObject =
     typeof style === "string"
       ? style.split(";").reduce((obj: { [key: string]: string }, s) => {
-          const [key, value] = s.split(":");
-          if (key && value) {
-            obj[key.trim()] = value.trim();
-          }
-          return obj;
-        }, {})
+        const [key, value] = s.split(":");
+        if (key && value) {
+          obj[key.trim()] = value.trim();
+        }
+        return obj;
+      }, {})
       : style;
 
   const mergedStyle: JSX.CSSProperties = {
@@ -89,7 +88,6 @@ export const ImageCompare = (props: ImageCompareProps) => {
   });
 
   const setSlider = (el: JSX.Element) => {
-    console.log("Slider", el);
     setState({ slider: el });
   };
 

@@ -2,7 +2,6 @@ import type { Component } from "solid-js";
 import logo from "./logo.svg";
 import styles from "./App.module.css";
 import {
-  Hello,
   SlideShow,
   SlideShowContent,
   SlideShowBullet,
@@ -14,14 +13,82 @@ import {
   ImageCompareSlider,
   ImageCompareLeft,
   ImageCompareRight,
-  GridGallery,
+  SquareGallery,
+  AutoColumnGallery,
+  ColumnGallery,
+  ColumnGalleryColumn,
 } from "../src";
 
 const App: Component = () => {
   return (
     <div class={styles.App}>
       <header class={styles.header}>
-        <GridGallery></GridGallery>
+        <h2>Square Gallery</h2>
+        <SquareGallery squareSize="20vw" minSquareSize="200px" maxSquareSize="210px" squareGap="1rem">
+          <img src="https://images.pexels.com/photos/167699/pexels-photo-167699.jpeg" alt="" width={"100%"} height={"100%"} />
+          <img src="https://images.pexels.com/photos/2662116/pexels-photo-2662116.jpeg" alt="" width={"100%"} height={"100%"} />
+          <img src="https://images.pexels.com/photos/8581948/pexels-photo-8581948.jpeg?w=1260&h=750" alt="" width={"100%"} height={"100%"} />
+          <img src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg" alt="" width={"100%"} height={"100%"} />
+          <img src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg" alt="" width={"100%"} height={"100%"} />
+          <img src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg" alt="" width={"100%"} height={"100%"} />
+          <img src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg" alt="" width={"100%"} height={"100%"} />
+          <img src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg" alt="" width={"100%"} height={"100%"} />
+          <img src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg" alt="" width={"100%"} height={"100%"} />
+          <img src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg" alt="" width={"100%"} height={"100%"} />
+          <img src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg" alt="" width={"100%"} height={"100%"} />
+          <div style={{
+            width: "100%",
+            height: "100%",
+          }}>
+            <img src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg" alt="" width={"100%"} height={"100%"} style={{
+              "object-fit": "cover"
+            }} />
+          </div>
+        </SquareGallery>
+        <h2>Auto Column Gallery</h2>
+        <AutoColumnGallery
+          columnGap="1rem"
+          rowGap="1rem"
+          columnWidth="100%"
+          columnMaxWidth="300px"
+          columnMinWidth="100px"
+          justifyContent="center">
+          <img src="https://images.pexels.com/photos/167699/pexels-photo-167699.jpeg" alt="" width={"100%"} height={"100%"} />
+          <img src="https://images.pexels.com/photos/2662116/pexels-photo-2662116.jpeg" alt="" width={"100%"} height={"100%"} />
+          <img src="https://images.pexels.com/photos/8581948/pexels-photo-8581948.jpeg?w=1260&h=750" alt="" width={"100%"} height={"100%"} />
+          <img src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg" alt="" width={"100%"} height={"100%"} />
+          <img src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg" alt="" width={"100%"} height={"100%"} />
+          <img src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg" alt="" width={"100%"} height={"100%"} />
+          <img src="https://images.pexels.com/photos/8581948/pexels-photo-8581948.jpeg?w=1260&h=750" alt="" width={"100%"} height={"100%"} />
+          <img src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg" alt="" width={"100%"} height={"100%"} />
+          <img src="https://images.pexels.com/photos/8581948/pexels-photo-8581948.jpeg?w=1260&h=750" alt="" width={"100%"} height={"100%"} />
+          <img src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg" alt="" width={"100%"} height={"100%"} />
+          <img src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg" alt="" width={"100%"} height={"100%"} />
+          <img src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg" alt="" width={"100%"} height={"100%"} />
+          <img src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg" alt="" width={"100%"} height={"100%"} />
+        </AutoColumnGallery>
+        <h2>Column Gallery</h2>
+        <ColumnGallery>
+          <ColumnGalleryColumn>
+            <img src="https://images.pexels.com/photos/167699/pexels-photo-167699.jpeg" alt="" width={"100%"} height={"100%"} />
+            <img src="https://images.pexels.com/photos/2662116/pexels-photo-2662116.jpeg" alt="" width={"100%"} height={"100%"} />
+            <img src="https://images.pexels.com/photos/8581948/pexels-photo-8581948.jpeg?w=1260&h=750" alt="" width={"100%"} height={"100%"} />
+            <img src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg" alt="" width={"100%"} height={"100%"} />
+          </ColumnGalleryColumn>
+          <ColumnGalleryColumn>
+            <img src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg" alt="" width={"100%"} height={"100%"} />
+            <img src="https://images.pexels.com/photos/8581948/pexels-photo-8581948.jpeg?w=1260&h=750" alt="" width={"100%"} height={"100%"} />
+            <img src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg" alt="" width={"100%"} height={"100%"} />
+            <img src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg" alt="" width={"100%"} height={"100%"} />
+          </ColumnGalleryColumn>
+          <ColumnGalleryColumn>
+            <img src="https://images.pexels.com/photos/8581948/pexels-photo-8581948.jpeg?w=1260&h=750" alt="" width={"100%"} height={"100%"} />
+            <img src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg" alt="" width={"100%"} height={"100%"} />
+            <img src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg" alt="" width={"100%"} height={"100%"} />
+            <img src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg" alt="" width={"100%"} height={"100%"} />
+          </ColumnGalleryColumn>
+        </ColumnGallery>
+        <h2>Image Compare</h2>
         <ImageCompare
           width="720px"
           height="405px"
@@ -86,6 +153,7 @@ const App: Component = () => {
           </ImageCompareSlider>
         </ImageCompare>
 
+        <h2>SlideShow</h2>
         <SlideShow
           // Navigation
           showArrows={true}
@@ -305,20 +373,6 @@ const App: Component = () => {
           <SlideShowNext />
           <SlideShowBullet></SlideShowBullet>
         </SlideShow>
-        <h1>
-          <Hello to="you"></Hello>
-        </h1>
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          class={styles.link}
-          href="https://github.com/solidjs/solid"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn Solid
-        </a>
       </header>
     </div>
   );
