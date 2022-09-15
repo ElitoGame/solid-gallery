@@ -17,15 +17,70 @@ import {
   AutoColumnGallery,
   ColumnGallery,
   ColumnGalleryColumn,
+  ImageScrollBar,
+  RowGallery,
+  ImageOverlay,
+  ImageOverlayProvider,
 } from "../src";
 
 const App: Component = () => {
   return (
     <div class={styles.App}>
       <header class={styles.header}>
+        <h2>Image Scrollbar</h2>
+        <ImageScrollBar
+          elementWidth="20vw"
+          width="90%"
+          height="250px"
+          animationSpeed="30s"
+          animationDirection="left-to-right"
+          pauseOnHover
+          fadeBorders={false}
+          fadeBordersPercent={5}>
+          <img src="https://images.pexels.com/photos/167699/pexels-photo-167699.jpeg" alt="" width={"100%"} height={"100%"} />
+          <img src="https://images.pexels.com/photos/2662116/pexels-photo-2662116.jpeg" alt="" width={"100%"} height={"100%"} />
+          <img src="https://images.pexels.com/photos/8581948/pexels-photo-8581948.jpeg?w=1260&h=750" alt="" width={"100%"} height={"100%"} />
+          <img src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg" alt="" width={"100%"} height={"100%"} />
+          <img src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg" alt="" width={"100%"} height={"100%"} />
+          <img src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg" alt="" width={"100%"} height={"100%"} />
+          <img src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg" alt="" width={"100%"} height={"100%"} />
+          <img src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg" alt="" width={"100%"} height={"100%"} />
+          <img src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg" alt="" width={"100%"} height={"100%"} />
+          <img src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg" alt="" width={"100%"} height={"100%"} />
+          <img src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg" alt="" width={"100%"} height={"100%"} />
+        </ImageScrollBar>
+
+        <h2>Row Gallery</h2>
+        <RowGallery
+          elementHeight="200px">
+          <ImageOverlayProvider>
+            <img src="https://images.pexels.com/photos/167699/pexels-photo-167699.jpeg" alt="" width={"100%"} height={"100%"} />
+            <ImageOverlay>
+              <span>Test</span>
+            </ImageOverlay>
+          </ImageOverlayProvider>
+          <img src="https://images.pexels.com/photos/2662116/pexels-photo-2662116.jpeg" alt="" width={"100%"} height={"100%"} />
+          <img src="https://images.pexels.com/photos/8581948/pexels-photo-8581948.jpeg?w=1260&h=750" alt="" width={"100%"} height={"100%"} />
+          <img src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg" alt="" width={"100%"} height={"100%"} />
+          <img src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg" alt="" width={"100%"} height={"100%"} />
+          <img src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg" alt="" width={"100%"} height={"100%"} />
+          <img src="https://images.pexels.com/photos/8581948/pexels-photo-8581948.jpeg?w=1260&h=750" alt="" width={"100%"} height={"100%"} />
+          <img src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg" alt="" width={"100%"} height={"100%"} />
+          <img src="https://images.pexels.com/photos/8581948/pexels-photo-8581948.jpeg?w=1260&h=750" alt="" width={"100%"} height={"100%"} />
+          <img src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg" alt="" width={"100%"} height={"100%"} />
+          <img src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg" alt="" width={"100%"} height={"100%"} />
+          <img src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg" alt="" width={"100%"} height={"100%"} />
+        </RowGallery>
         <h2>Square Gallery</h2>
         <SquareGallery squareSize="20vw" minSquareSize="200px" maxSquareSize="210px" squareGap="1rem">
-          <img src="https://images.pexels.com/photos/167699/pexels-photo-167699.jpeg" alt="" width={"100%"} height={"100%"} />
+          <ImageOverlayProvider overlayColor="rgba(0,0,0,0.5)" overlayOpacityFadeDuration={0.1}>
+            <img src="https://images.pexels.com/photos/167699/pexels-photo-167699.jpeg" alt="" width={"100%"} height={"100%"} style={{
+              "object-fit": "cover"
+            }} />
+            <ImageOverlay>
+              <span>Test</span>
+            </ImageOverlay>
+          </ImageOverlayProvider>
           <img src="https://images.pexels.com/photos/2662116/pexels-photo-2662116.jpeg" alt="" width={"100%"} height={"100%"} />
           <img src="https://images.pexels.com/photos/8581948/pexels-photo-8581948.jpeg?w=1260&h=750" alt="" width={"100%"} height={"100%"} />
           <img src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg" alt="" width={"100%"} height={"100%"} />
@@ -62,7 +117,6 @@ const App: Component = () => {
           <img src="https://images.pexels.com/photos/8581948/pexels-photo-8581948.jpeg?w=1260&h=750" alt="" width={"100%"} height={"100%"} />
           <img src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg" alt="" width={"100%"} height={"100%"} />
           <img src="https://images.pexels.com/photos/8581948/pexels-photo-8581948.jpeg?w=1260&h=750" alt="" width={"100%"} height={"100%"} />
-          <img src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg" alt="" width={"100%"} height={"100%"} />
           <img src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg" alt="" width={"100%"} height={"100%"} />
           <img src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg" alt="" width={"100%"} height={"100%"} />
           <img src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg" alt="" width={"100%"} height={"100%"} />

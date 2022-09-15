@@ -103,3 +103,24 @@ export interface AutoColumnGalleryProps extends CommonGalleryProps {
 }
 
 export interface ColumnGalleryProps extends CommonGalleryProps { }
+
+
+export interface RowGalleryProps extends CommonGalleryProps {
+  elementHeight?: string;
+}
+
+
+export interface ImageScrollBarProps extends CommonGalleryProps {
+  elementWidth?: string;
+  elementGap?: string;
+  animationSpeed?: string;
+  animationDirection?: "left-to-right" | "right-to-left";
+  pauseOnHover?: boolean;
+  fadeBorders?: boolean;
+  fadeBordersPercent?: number;
+}
+
+export interface ImageOverlayPorps extends CommonGalleryProps {
+  overlayColor?: string;
+  overlayOpacityFadeDuration?: number;
+}
