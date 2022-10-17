@@ -30,6 +30,7 @@ const App: Component = () => {
         <h2>Image Scrollbar</h2>
         <ImageScrollBar
           elementWidth="20vw"
+          elementGap= "1rem"
           width="90%"
           height="250px"
           animationSpeed="30s"
