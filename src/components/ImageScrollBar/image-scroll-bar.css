@@ -22,14 +22,6 @@
     animation-timing-function: linear;
 }
 
-.glider__slides {
-    animation-name: glider_one;
-}
-
-.glider__slides--dupe {
-    animation-name: glider_two;
-}
-
 /* Left to Right */
 @keyframes glider_one {
     0% {
@@ -87,4 +79,8 @@
     75.01% {
         transform: translateX(50%);
     }
+}
+
+.glider__viewport img{
+  max-width: none;
 }

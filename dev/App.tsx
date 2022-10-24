@@ -29,76 +29,260 @@ const App: Component = () => {
       <header class={styles.header}>
         <h2>Image Scrollbar</h2>
         <ImageScrollBar
-          elementWidth="20vw"
-          elementGap= "1rem"
+          // elementWidth="20vw" // fit-content by default
+          elementGap="1rem"
           width="90%"
           height="250px"
           animationSpeed="30s"
-          animationDirection="left-to-right"
+          animationDirection="right-to-left"
           pauseOnHover
           fadeBorders={false}
-          fadeBordersPercent={5}>
-          <img src="https://images.pexels.com/photos/167699/pexels-photo-167699.jpeg" alt="" width={"100%"} height={"100%"} />
-          <img src="https://images.pexels.com/photos/2662116/pexels-photo-2662116.jpeg" alt="" width={"100%"} height={"100%"} />
-          <img src="https://images.pexels.com/photos/8581948/pexels-photo-8581948.jpeg?w=1260&h=750" alt="" width={"100%"} height={"100%"} />
-          <img src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg" alt="" width={"100%"} height={"100%"} />
-          <img src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg" alt="" width={"100%"} height={"100%"} />
-          <img src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg" alt="" width={"100%"} height={"100%"} />
-          <img src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg" alt="" width={"100%"} height={"100%"} />
-          <img src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg" alt="" width={"100%"} height={"100%"} />
-          <img src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg" alt="" width={"100%"} height={"100%"} />
-          <img src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg" alt="" width={"100%"} height={"100%"} />
-          <img src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg" alt="" width={"100%"} height={"100%"} />
+          fadeBordersPercent={5}
+        >
+          <img
+            src="https://images.pexels.com/photos/167699/pexels-photo-167699.jpeg"
+            alt=""
+            width={"100%"}
+            height={"100%"}
+          />
+          <img
+            src="https://images.pexels.com/photos/2662116/pexels-photo-2662116.jpeg"
+            alt=""
+            width={"100%"}
+            height={"100%"}
+          />
+          <img
+            src="https://images.pexels.com/photos/8581948/pexels-photo-8581948.jpeg?w=1260&h=750"
+            alt=""
+            width={"100%"}
+            height={"100%"}
+          />
+          <img
+            src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg"
+            alt=""
+            width={"100%"}
+            height={"100%"}
+          />
+          <img
+            src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg"
+            alt=""
+            width={"100%"}
+            height={"100%"}
+          />
+          <img
+            src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg"
+            alt=""
+            width={"100%"}
+            height={"100%"}
+          />
+          <img
+            src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg"
+            alt=""
+            width={"100%"}
+            height={"100%"}
+          />
+          <img
+            src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg"
+            alt=""
+            width={"100%"}
+            height={"100%"}
+          />
+          <img
+            src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg"
+            alt=""
+            width={"100%"}
+            height={"100%"}
+          />
+          <img
+            src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg"
+            alt=""
+            width={"100%"}
+            height={"100%"}
+          />
+          <img
+            src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg"
+            alt=""
+            width={"100%"}
+            height={"100%"}
+          />
         </ImageScrollBar>
 
         <h2>Row Gallery</h2>
-        <RowGallery
-          elementHeight="200px">
+        <RowGallery elementHeight="200px">
           <ImageOverlayProvider>
-            <img src="https://images.pexels.com/photos/167699/pexels-photo-167699.jpeg" alt="" width={"100%"} height={"100%"} />
+            <img
+              src="https://images.pexels.com/photos/167699/pexels-photo-167699.jpeg"
+              alt=""
+              width={"100%"}
+              height={"100%"}
+            />
             <ImageOverlay>
               <span>Test</span>
             </ImageOverlay>
           </ImageOverlayProvider>
-          <img src="https://images.pexels.com/photos/2662116/pexels-photo-2662116.jpeg" alt="" width={"100%"} height={"100%"} />
-          <img src="https://images.pexels.com/photos/8581948/pexels-photo-8581948.jpeg?w=1260&h=750" alt="" width={"100%"} height={"100%"} />
-          <img src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg" alt="" width={"100%"} height={"100%"} />
-          <img src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg" alt="" width={"100%"} height={"100%"} />
-          <img src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg" alt="" width={"100%"} height={"100%"} />
-          <img src="https://images.pexels.com/photos/8581948/pexels-photo-8581948.jpeg?w=1260&h=750" alt="" width={"100%"} height={"100%"} />
-          <img src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg" alt="" width={"100%"} height={"100%"} />
-          <img src="https://images.pexels.com/photos/8581948/pexels-photo-8581948.jpeg?w=1260&h=750" alt="" width={"100%"} height={"100%"} />
-          <img src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg" alt="" width={"100%"} height={"100%"} />
-          <img src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg" alt="" width={"100%"} height={"100%"} />
-          <img src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg" alt="" width={"100%"} height={"100%"} />
+          <img
+            src="https://images.pexels.com/photos/2662116/pexels-photo-2662116.jpeg"
+            alt=""
+            width={"100%"}
+            height={"100%"}
+          />
+          <img
+            src="https://images.pexels.com/photos/8581948/pexels-photo-8581948.jpeg?w=1260&h=750"
+            alt=""
+            width={"100%"}
+            height={"100%"}
+          />
+          <img
+            src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg"
+            alt=""
+            width={"100%"}
+            height={"100%"}
+          />
+          <img
+            src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg"
+            alt=""
+            width={"100%"}
+            height={"100%"}
+          />
+          <img
+            src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg"
+            alt=""
+            width={"100%"}
+            height={"100%"}
+          />
+          <img
+            src="https://images.pexels.com/photos/8581948/pexels-photo-8581948.jpeg?w=1260&h=750"
+            alt=""
+            width={"100%"}
+            height={"100%"}
+          />
+          <img
+            src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg"
+            alt=""
+            width={"100%"}
+            height={"100%"}
+          />
+          <img
+            src="https://images.pexels.com/photos/8581948/pexels-photo-8581948.jpeg?w=1260&h=750"
+            alt=""
+            width={"100%"}
+            height={"100%"}
+          />
+          <img
+            src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg"
+            alt=""
+            width={"100%"}
+            height={"100%"}
+          />
+          <img
+            src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg"
+            alt=""
+            width={"100%"}
+            height={"100%"}
+          />
+          <img
+            src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg"
+            alt=""
+            width={"100%"}
+            height={"100%"}
+          />
         </RowGallery>
         <h2>Square Gallery</h2>
-        <SquareGallery squareSize="20vw" minSquareSize="200px" maxSquareSize="210px" squareGap="1rem">
+        <SquareGallery
+          squareSize="20vw"
+          minSquareSize="200px"
+          maxSquareSize="210px"
+          squareGap="1rem"
+        >
           <ImageOverlayProvider overlayColor="rgba(0,0,0,0.5)" overlayOpacityFadeDuration={0.1}>
-            <img src="https://images.pexels.com/photos/167699/pexels-photo-167699.jpeg" alt="" width={"100%"} height={"100%"} style={{
-              "object-fit": "cover"
-            }} />
+            <img
+              src="https://images.pexels.com/photos/167699/pexels-photo-167699.jpeg"
+              alt=""
+              width={"100%"}
+              height={"100%"}
+              style={{
+                "object-fit": "cover",
+              }}
+            />
             <ImageOverlay>
               <span>Test</span>
             </ImageOverlay>
           </ImageOverlayProvider>
-          <img src="https://images.pexels.com/photos/2662116/pexels-photo-2662116.jpeg" alt="" width={"100%"} height={"100%"} />
-          <img src="https://images.pexels.com/photos/8581948/pexels-photo-8581948.jpeg?w=1260&h=750" alt="" width={"100%"} height={"100%"} />
-          <img src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg" alt="" width={"100%"} height={"100%"} />
-          <img src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg" alt="" width={"100%"} height={"100%"} />
-          <img src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg" alt="" width={"100%"} height={"100%"} />
-          <img src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg" alt="" width={"100%"} height={"100%"} />
-          <img src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg" alt="" width={"100%"} height={"100%"} />
-          <img src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg" alt="" width={"100%"} height={"100%"} />
-          <img src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg" alt="" width={"100%"} height={"100%"} />
-          <img src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg" alt="" width={"100%"} height={"100%"} />
-          <div style={{
-            width: "100%",
-            height: "100%",
-          }}>
-            <img src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg" alt="" width={"100%"} height={"100%"} style={{
-              "object-fit": "cover"
-            }} />
+          <img
+            src="https://images.pexels.com/photos/2662116/pexels-photo-2662116.jpeg"
+            alt=""
+            width={"100%"}
+            height={"100%"}
+          />
+          <img
+            src="https://images.pexels.com/photos/8581948/pexels-photo-8581948.jpeg?w=1260&h=750"
+            alt=""
+            width={"100%"}
+            height={"100%"}
+          />
+          <img
+            src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg"
+            alt=""
+            width={"100%"}
+            height={"100%"}
+          />
+          <img
+            src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg"
+            alt=""
+            width={"100%"}
+            height={"100%"}
+          />
+          <img
+            src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg"
+            alt=""
+            width={"100%"}
+            height={"100%"}
+          />
+          <img
+            src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg"
+            alt=""
+            width={"100%"}
+            height={"100%"}
+          />
+          <img
+            src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg"
+            alt=""
+            width={"100%"}
+            height={"100%"}
+          />
+          <img
+            src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg"
+            alt=""
+            width={"100%"}
+            height={"100%"}
+          />
+          <img
+            src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg"
+            alt=""
+            width={"100%"}
+            height={"100%"}
+          />
+          <img
+            src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg"
+            alt=""
+            width={"100%"}
+            height={"100%"}
+          />
+          <div
+            style={{
+              width: "100%",
+              height: "100%",
+            }}
+          >
+            <img
+              src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg"
+              alt=""
+              width={"100%"}
+              height={"100%"}
+              style={{
+                "object-fit": "cover",
+              }}
+            />
           </div>
         </SquareGallery>
         <h2>Auto Column Gallery</h2>
@@ -108,39 +292,160 @@ const App: Component = () => {
           columnWidth="100%"
           columnMaxWidth="300px"
           columnMinWidth="100px"
-          justifyContent="center">
-          <img src="https://images.pexels.com/photos/167699/pexels-photo-167699.jpeg" alt="" width={"100%"} height={"100%"} />
-          <img src="https://images.pexels.com/photos/2662116/pexels-photo-2662116.jpeg" alt="" width={"100%"} height={"100%"} />
-          <img src="https://images.pexels.com/photos/8581948/pexels-photo-8581948.jpeg?w=1260&h=750" alt="" width={"100%"} height={"100%"} />
-          <img src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg" alt="" width={"100%"} height={"100%"} />
-          <img src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg" alt="" width={"100%"} height={"100%"} />
-          <img src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg" alt="" width={"100%"} height={"100%"} />
-          <img src="https://images.pexels.com/photos/8581948/pexels-photo-8581948.jpeg?w=1260&h=750" alt="" width={"100%"} height={"100%"} />
-          <img src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg" alt="" width={"100%"} height={"100%"} />
-          <img src="https://images.pexels.com/photos/8581948/pexels-photo-8581948.jpeg?w=1260&h=750" alt="" width={"100%"} height={"100%"} />
-          <img src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg" alt="" width={"100%"} height={"100%"} />
-          <img src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg" alt="" width={"100%"} height={"100%"} />
-          <img src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg" alt="" width={"100%"} height={"100%"} />
+          justifyContent="center"
+        >
+          <img
+            src="https://images.pexels.com/photos/167699/pexels-photo-167699.jpeg"
+            alt=""
+            width={"100%"}
+            height={"100%"}
+          />
+          <img
+            src="https://images.pexels.com/photos/2662116/pexels-photo-2662116.jpeg"
+            alt=""
+            width={"100%"}
+            height={"100%"}
+          />
+          <img
+            src="https://images.pexels.com/photos/8581948/pexels-photo-8581948.jpeg?w=1260&h=750"
+            alt=""
+            width={"100%"}
+            height={"100%"}
+          />
+          <img
+            src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg"
+            alt=""
+            width={"100%"}
+            height={"100%"}
+          />
+          <img
+            src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg"
+            alt=""
+            width={"100%"}
+            height={"100%"}
+          />
+          <img
+            src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg"
+            alt=""
+            width={"100%"}
+            height={"100%"}
+          />
+          <img
+            src="https://images.pexels.com/photos/8581948/pexels-photo-8581948.jpeg?w=1260&h=750"
+            alt=""
+            width={"100%"}
+            height={"100%"}
+          />
+          <img
+            src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg"
+            alt=""
+            width={"100%"}
+            height={"100%"}
+          />
+          <img
+            src="https://images.pexels.com/photos/8581948/pexels-photo-8581948.jpeg?w=1260&h=750"
+            alt=""
+            width={"100%"}
+            height={"100%"}
+          />
+          <img
+            src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg"
+            alt=""
+            width={"100%"}
+            height={"100%"}
+          />
+          <img
+            src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg"
+            alt=""
+            width={"100%"}
+            height={"100%"}
+          />
+          <img
+            src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg"
+            alt=""
+            width={"100%"}
+            height={"100%"}
+          />
         </AutoColumnGallery>
         <h2>Column Gallery</h2>
         <ColumnGallery>
           <ColumnGalleryColumn>
-            <img src="https://images.pexels.com/photos/167699/pexels-photo-167699.jpeg" alt="" width={"100%"} height={"100%"} />
-            <img src="https://images.pexels.com/photos/2662116/pexels-photo-2662116.jpeg" alt="" width={"100%"} height={"100%"} />
-            <img src="https://images.pexels.com/photos/8581948/pexels-photo-8581948.jpeg?w=1260&h=750" alt="" width={"100%"} height={"100%"} />
-            <img src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg" alt="" width={"100%"} height={"100%"} />
+            <img
+              src="https://images.pexels.com/photos/167699/pexels-photo-167699.jpeg"
+              alt=""
+              width={"100%"}
+              height={"100%"}
+            />
+            <img
+              src="https://images.pexels.com/photos/2662116/pexels-photo-2662116.jpeg"
+              alt=""
+              width={"100%"}
+              height={"100%"}
+            />
+            <img
+              src="https://images.pexels.com/photos/8581948/pexels-photo-8581948.jpeg?w=1260&h=750"
+              alt=""
+              width={"100%"}
+              height={"100%"}
+            />
+            <img
+              src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg"
+              alt=""
+              width={"100%"}
+              height={"100%"}
+            />
           </ColumnGalleryColumn>
           <ColumnGalleryColumn>
-            <img src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg" alt="" width={"100%"} height={"100%"} />
-            <img src="https://images.pexels.com/photos/8581948/pexels-photo-8581948.jpeg?w=1260&h=750" alt="" width={"100%"} height={"100%"} />
-            <img src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg" alt="" width={"100%"} height={"100%"} />
-            <img src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg" alt="" width={"100%"} height={"100%"} />
+            <img
+              src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg"
+              alt=""
+              width={"100%"}
+              height={"100%"}
+            />
+            <img
+              src="https://images.pexels.com/photos/8581948/pexels-photo-8581948.jpeg?w=1260&h=750"
+              alt=""
+              width={"100%"}
+              height={"100%"}
+            />
+            <img
+              src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg"
+              alt=""
+              width={"100%"}
+              height={"100%"}
+            />
+            <img
+              src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg"
+              alt=""
+              width={"100%"}
+              height={"100%"}
+            />
           </ColumnGalleryColumn>
           <ColumnGalleryColumn>
-            <img src="https://images.pexels.com/photos/8581948/pexels-photo-8581948.jpeg?w=1260&h=750" alt="" width={"100%"} height={"100%"} />
-            <img src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg" alt="" width={"100%"} height={"100%"} />
-            <img src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg" alt="" width={"100%"} height={"100%"} />
-            <img src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg" alt="" width={"100%"} height={"100%"} />
+            <img
+              src="https://images.pexels.com/photos/8581948/pexels-photo-8581948.jpeg?w=1260&h=750"
+              alt=""
+              width={"100%"}
+              height={"100%"}
+            />
+            <img
+              src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg"
+              alt=""
+              width={"100%"}
+              height={"100%"}
+            />
+            <img
+              src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg"
+              alt=""
+              width={"100%"}
+              height={"100%"}
+            />
+            <img
+              src="https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg"
+              alt=""
+              width={"100%"}
+              height={"100%"}
+            />
           </ColumnGalleryColumn>
         </ColumnGallery>
         <h2>Image Compare</h2>
@@ -211,14 +516,14 @@ const App: Component = () => {
         <h2>SlideShow</h2>
         <SlideShow
           // Navigation
-          showArrows={true}
+          showArrows={false}
           arrowPosition="bottom-thumbnails"
           showPrevNextElementFade={0.2}
           showPrevNextElement={false}
           prevNextElementClickable={true}
           showBullets={true}
           // Thumbnails
-          showThumbnails={true}
+          showThumbnails={false}
           thumbnailScale={0.2}
           thumbnailAutoScroll={true}
           thumbnailsPosition="right"

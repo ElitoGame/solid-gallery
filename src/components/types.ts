@@ -1,46 +1,48 @@
-import { AutoColumnGallery } from './ColumnGallery/auto-column-gallery';
+import { AutoColumnGallery } from "./ColumnGallery/auto-column-gallery";
 import { JSX } from "solid-js/jsx-runtime";
 
-export interface CommonProps extends JSX.HTMLAttributes<HTMLElement> { }
+export interface CommonProps extends JSX.HTMLAttributes<HTMLElement> {}
 
 export interface CommonGalleryProps {
   w?:
-  | "xs"
-  | "sm"
-  | "md"
-  | "lg"
-  | "xl"
-  | "2xl"
-  | "3xl"
-  | "4xl"
-  | "5xl"
-  | "6xl"
-  | "7xl"
-  | "8xl"
-  | "full"
-  | "min"
-  | "max"
-  | "screenW";
+    | "xs"
+    | "sm"
+    | "md"
+    | "lg"
+    | "xl"
+    | "2xl"
+    | "3xl"
+    | "4xl"
+    | "5xl"
+    | "6xl"
+    | "7xl"
+    | "8xl"
+    | "full"
+    | "min"
+    | "max"
+    | "screenW";
   h?:
-  | "xs"
-  | "sm"
-  | "md"
-  | "lg"
-  | "xl"
-  | "2xl"
-  | "3xl"
-  | "4xl"
-  | "5xl"
-  | "6xl"
-  | "7xl"
-  | "8xl"
-  | "full"
-  | "min"
-  | "max"
-  | "screenH";
+    | "xs"
+    | "sm"
+    | "md"
+    | "lg"
+    | "xl"
+    | "2xl"
+    | "3xl"
+    | "4xl"
+    | "5xl"
+    | "6xl"
+    | "7xl"
+    | "8xl"
+    | "full"
+    | "min"
+    | "max"
+    | "screenH";
   width?: string;
   height?: string;
   children?: JSX.Element[] | JSX.Element;
+  // class?: string;
+  // style?: string | JSX.CSSProperties | undefined;
 }
 
 export interface SlideShowProps extends CommonGalleryProps {
@@ -85,7 +87,6 @@ export interface ImageCompareImageProps extends CommonGalleryProps {
   alt?: string;
 }
 
-
 export interface SquareGalleryProps extends CommonGalleryProps {
   squareSize?: string;
   minSquareSize?: string;
@@ -99,16 +100,23 @@ export interface AutoColumnGalleryProps extends CommonGalleryProps {
   columnWidth?: string;
   columnMaxWidth?: string;
   columnMinWidth?: string;
-  justifyContent?: "center" | "flex-end" | "flex-start" | "space-around" | "space-between" | "space-evenly" | "stretch" | JSX.CSSWideKeyword | undefined;
+  justifyContent?:
+    | "center"
+    | "flex-end"
+    | "flex-start"
+    | "space-around"
+    | "space-between"
+    | "space-evenly"
+    | "stretch"
+    | JSX.CSSWideKeyword
+    | undefined;
 }
 
-export interface ColumnGalleryProps extends CommonGalleryProps { }
-
+export interface ColumnGalleryProps extends CommonGalleryProps {}
 
 export interface RowGalleryProps extends CommonGalleryProps {
   elementHeight?: string;
 }
-
 
 export interface ImageScrollBarProps extends CommonGalleryProps {
   elementWidth?: string;

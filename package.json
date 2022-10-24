@@ -1,5 +1,5 @@
 {
-  "version": "0.1.3",
+  "version": "0.1.5",
   "name": "solid-gallery",
   "description": "A SolidJS Libaray for displaying images in a gallery.",
   "license": "MIT",
